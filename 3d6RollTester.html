@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3d6 Character Roll Tester</title>
+</head>
+<body>
+	<nav>
+			<a href="index.html">3d6 PH...</a>
+			<a href="3d6UA.html">3d6 UA...</a>
+			<a href="method1.html">Method I...</a>
+			<a href="method3roller.html">Method III...</a>
+			<span>3d6 Roll Tester</span>
+	</nav>
+
+<h1>3d6 Character Roll Tester</h1>
+<form>
+	<p>Choose class to roll</p>
+	<input type="radio" name="charClass" value="cleric" onclick="selectClass('cleric')">Cleric<br>
+	<input type="radio" name="charClass" value="druid" onclick="selectClass('druid')">Druid<br>
+	<input type="radio" name="charClass" value="fighter" onclick="selectClass('fighter')">Fighter<br>
+	<input type="radio" name="charClass" value="paladinPHB" onclick="selectClass('paladinPHB')">Paladin (Players Handbook)<br>
+	<input type="radio" name="charClass" value="ranger" onclick="selectClass('ranger')">Ranger<br>
+	<input type="radio" name="charClass" value="magicuser" onclick="selectClass('magicuser')">Magic User<br>
+	<input type="radio" name="charClass" value="illusionist" onclick="selectClass('illusionist')">Illusionist<br>
+	<input type="radio" name="charClass" value="thief" onclick="selectClass('thief')">Thief<br>
+	<input type="radio" name="charClass" value="assassin" onclick="selectClass('assassin')">Assassin<br>
+	<input type="radio" name="charClass" value="monk" onclick="selectClass('monk')">Monk<br>
+	<input type="radio" name="charClass" value="cavalier" onclick="selectClass('cavalier')">Cavalier<br>
+	<input type="radio" name="charClass" value="paladinUA" onclick="selectClass('paladinUA')">Paladin (Unearthed Arcana) - Warning: Slow!<br>
+	<input type="radio" name="charClass" value="barbarian" onclick="selectClass('barbarian')">Barbarian<br>
+	<input type="radio" name="charClass" value="thiefAcrobat" onclick="selectClass('thiefAcrobat')">Thief-Acrobat<br>
+	<input type="radio" name="charClass" value="bard" onclick="selectClass('bard')">Bard (Dragon Magazine)<br>
+</form>
+<br>
+<button id="roll" onclick="rollButton()">Roll</button>
+<br>
+<p id="stats">Select a class and hit roll.</p>
+<p id="rolls"></p>
+</body>
+<script>
+var selected;
+var statCount = 6;//six stats for dees and dees
+
+var currentChar = [];
+var classRolls = 0;
+var rerolls = 0;
+var statBox = document.getElementById("stats");
+var rollBox = document.getElementById("rolls");
+
+var classStats = {
+	cleric: [6,6,9,3,6,6],
+	druid: [6,6,12,6,6,15],
+	fighter: [9,3,6,6,7,6],
+	paladinPHB: [11,9,13,6,9,17],
+	ranger: [12,13,14,6,14,6],
+	magicuser: [3,9,6,6,6,6],
+	illusionist: [6,15,6,16,3,6],
+	thief: [6,6,3,9,6,6],
+	assassin: [11,11,6,12,6,3],
+	monk: [15,6,15,15,11,6],
+	cavalier: [15,10,10,15,15,3],
+	paladinUA: [15,10,13,15,15,17],
+	barbarian: [15,3,3,14,15,3],
+	thiefAcrobat: [15,6,3,16,6,6],
+	bard: [9,15,12,16,6,15]
+};
+
+function selectClass(selection){
+	selected = classStats[selection];
+    classRolls = 0;
+    rerolls = 0;
+	statBox.innerHTML =  "Minimum Stats:<br><br> Strength: " + selected[0] + "<br>Intelligence: " + selected[1] + "<br>Wisdom: " + selected[2] + "<br>Dexterity: " + selected[3] + "<br>Constitution: " + selected[4] + "<br>Charisma: " + selected[5];
+    rollBox.innerHTML = "";
+}
+
+function rollButton(){
+	var numRolls = 0;
+    rerolls++;
+	rollStats();
+
+
+	function rollStats(){
+        var charRolled = false;
+        while (!charRolled){
+            numRolls++;
+            for (i = 0; i < statCount; i++){
+                currentChar[i] = d6x3();
+                }
+            if (checkStats(currentChar)){
+                statBox.innerHTML = "Strength: " + currentChar[0] + "<br>Intelligence: " + currentChar[1] + "<br>Wisdom: " + currentChar[2] + "<br>Dexterity: " + currentChar[3] + "<br>Constitution: " + currentChar[4] + "<br>Charisma: " + currentChar[5];
+                charRolled = true;
+                classRolls += numRolls;
+                rollBox.innerHTML = numRolls + " characters rolled<br>Class Average: " + (classRolls / rerolls).toFixed(2);
+            }
+	    }
+    }
+}
+
+function checkStats(character){
+	var check = true;
+	//ugly hack for Barbarian Wisdom maximum
+	if (selected === classStats.barbarian && character[2] > 15){
+		return false;
+	}
+	for (i = 0; i < statCount; i++){
+		if (character[i] < selected[i]){
+			return false;
+		}
+	}
+	return check;
+}
+
+function d6x3(){
+	var stat = 0;
+	for (ii = 0; ii < 3; ii++){
+		stat += d6();
+	}
+	return stat;	
+}
+
+function d6(){
+	var roll = Math.floor(Math.random() * 6 + 1);
+	return roll;
+}
+
+</script>
+</html>

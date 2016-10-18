@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Method I Character Roller</title>
+	</head>
+	<body>
+		<nav>
+			<a href="index.html">3d6 PH...</a>
+			<a href="3d6UA.html">3d6 UA...</a>
+			<span>Method I...</span>
+			<a href="method3roller.html">Method III...</a>
+			<a href="3d6RollTester.html">3d6 Roll Tester</a>
+		</nav>
+
+		<h3>Method I Character Roller</h3>
+		
+		<h4 id="curSwap">Selected Stat: --</h4>
+
+		<table>
+			<tr>
+				<td><button class= "swapBtn"onclick="swapStat(0)">Swap</button></td>
+				<td> Strength: </td>
+				<td id="0">--</td>
+			</tr>
+			<tr>
+				<td><button class= "swapBtn"onclick="swapStat(1)">Swap</button></td>
+				<td> Intelligence: </td>
+				<td id="1">--</td>
+			</tr>
+			<tr>
+				<td><button class= "swapBtn"onclick="swapStat(2)">Swap</button></td>
+				<td> Wisdom: </td>
+				<td id="2">--</td>
+			</tr>
+			<tr>
+				<td><button class= "swapBtn"onclick="swapStat(3)">Swap</button></td>
+				<td> Dexterity: </td>
+				<td id="3">--</td>
+			</tr>
+			<tr>
+				<td><button class= "swapBtn"onclick="swapStat(4)">Swap</button></td>
+				<td> Constitution: </td>
+				<td id="4">--</td>			
+			</tr>
+			<tr>
+				<td><button class= "swapBtn"onclick="swapStat(5)">Swap</button></td>
+				<td> Charisma: </td>
+				<td id="5">--</td>
+			</tr>	
+			<tr>
+				<td><button class= "swapBtn"onclick="swapStat(6)">Swap</button></td>
+				<td> Comliness: </td>
+				<td id="6">--</td>			
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>(Unearthed Arcana only)</td>
+			</tr>
+		</table>
+
+		<button id="rollBtn" tabindex="3" onclick="rollStats()">Roll</button>
+
+		<p id="classList"></p>
+		<p id="statAverages"></p>
+		
+		
+
+<script src="method1.js">
+	
+
+</script>
+
+</body>
+</html>
