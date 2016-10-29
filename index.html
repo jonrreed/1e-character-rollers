@@ -2,30 +2,34 @@
 <html>
 	<head>
 		<title>3d6 Character Roller</title>
+		<link href="rollers.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
+		<div id="content">
+			<nav>
+				<span>3d6 PH</span>
+				<a href="3d6UA.html">3d6 UA</a>
+				<a href="method1.html">Method I</a>
+				<a href="method3roller.html">Method III</a>
+				<a href="3d6RollTester.html">3d6 Roll Tester</a>
+			</nav>	
 
-		<nav>
-			<span>3d6 PH...</span>
-			<a href="3d6UA.html">3d6 UA...</a>
-			<a href="method1.html">Method I...</a>
-			<a href="method3roller.html">Method III...</a>
-			<a href="3d6RollTester.html">3d6 Roll Tester</a>
-		</nav>	
+			<h3>3d6 Character Generator  (Player's Handbook)</h3>
 
-		<h3>3d6 Character Generator  (Player's Handbook)</h3>
+			<p id="description">The most basic method of character generation. Three six sided dice are rolled and totalled for each stat consecutively. This results in fairly average characters who often cannot qualify for the more elite character classes.</p>
 
-		<p id="0">Strength: ?</p>
-		<p id="1">Intelligence: ?</p>
-		<p id="2">Wisdom: ?</p>
-		<p id="3">Dexterity: ?</p>
-		<p id="4">Constitution: ?</p>
-		<p id="5">Charisma: ?</p>
+			<p id="0">Strength: --</p>
+			<p id="1">Intelligence: --</p>
+			<p id="2">Wisdom: --</p>
+			<p id="3">Dexterity: --</p>
+			<p id="4">Constitution: --</p>
+			<p id="5">Charisma: --</p>
 
-		<button onclick="rollStats()">Roll</button>
+			<button onclick="rollStats()">Roll</button>
 
-		<p id="classList"></p>
-
+			<p id="classList"></p>
+		</div>
+	</body>		
 <script>
 	var statnames = ["Strength: ","Intelligence: ","Wisdom: ","Dexterity: ","Constitution: ","Charisma: "];
 	var stats = [];
@@ -133,5 +137,5 @@ function rolld6s (dice){
 
 </script>
 
-</body>
+
 </html>

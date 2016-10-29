@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Gentium+Book+Basic);
+
+body {
+    height:100%;
+    background:#1a0000;
+    font-family:'Gentium Book Basic', serif;
+    font-size: 12pt;
+}
+
+nav {
+    font-size:14pt;
+    margin-bottom:25px;
+}
+
+nav span {
+    width:80px;
+    padding:5px 10px;
+    color: #ffffe6;
+    background-color: #e60000;
+    border-radius: 6px;
+}
+
+nav a{
+    width:80px;
+    padding:5px 10px;
+    color: #ffffe6;
+    background-color: #4d0000;
+    border-radius: 6px;
+    text-decoration:none;
+    transition:all .3s;
+}
+
+nav a:hover{
+    background-color:#cc0000;
+}
+
+#content {
+    width:800px;
+    min-height:800px;
+    padding:30px;
+    padding-left:60px;
+    margin:40px auto 20px auto;
+    border-radius:4px;
+    background:#ffffe6;
+}
+
+#description {
+    margin-left:30px;
+    width:450px;
+    padding:10px;
+}
+
+h3{
+    padding-top:12px;
+}
+
+button {
+    width:60px;
+    padding:7px 5px;
+    color: #ffffe6;
+    background-color: #4d0000;
+    border-radius: 6px;
+    text-decoration:none;
+    transition:all .3s;
+    font-family:'Gentium Book Basic', serif;
+    font-size: 12pt;
+}
+
+button:hover{
+    background-color:#cc0000;
+}
